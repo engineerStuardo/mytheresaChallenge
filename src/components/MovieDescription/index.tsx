@@ -54,7 +54,7 @@ export const MovieDescription = ({
             </ButtonText>
           </AddWishlistButton>
         )}
-        <Title>{title}</Title>
+        <Title color={Colors.yellow}>{title}</Title>
         <Text>{description}</Text>
       </DetailContainer>
     </>
