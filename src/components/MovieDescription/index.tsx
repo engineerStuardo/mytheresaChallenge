@@ -1,7 +1,18 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Text} from 'react-native';
+
+import {
+  Container,
+  Image,
+  DetailContainer,
+  AddWishlistButton,
+  Title,
+  ButtonText,
+} from './styled';
 
 import {IMovieDescriptionProps} from '../../types/interfaces';
+
+import {Colors} from '../../theme/colors';
 
 export const MovieDescription = ({
   posterPath,
@@ -15,41 +26,20 @@ export const MovieDescription = ({
 }: IMovieDescriptionProps) => {
   return (
     <>
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <Container>
         <Image
           resizeMode="cover"
-          style={{
-            height: 300,
-            width: 220,
-            borderRadius: 20,
-          }}
           source={{
             uri: `https://image.tmdb.org/t/p/w500${posterPath}`,
           }}
         />
-      </View>
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: 10,
-          padding: 10,
-        }}>
+      </Container>
+      <DetailContainer>
         {detail && (
-          <TouchableOpacity
-            style={{
-              marginBottom: 10,
-              padding: 10,
-              borderRadius: 8,
-              backgroundColor:
-                movieAlreadyAdded && movieAlreadyAdded.length > 0
-                  ? '#717fd9'
-                  : '#343e80',
-            }}
+          <AddWishlistButton
+            movieAlreadyAdded={movieAlreadyAdded}
+            disabledColor={Colors.disabled}
+            enabledColor={Colors.enabled}
             disabled={movieAlreadyAdded && movieAlreadyAdded.length > 0}
             onPress={() => {
               setWishList &&
@@ -57,24 +47,16 @@ export const MovieDescription = ({
                 movieSelected &&
                 setWishList([...wishList, movieSelected]);
             }}>
-            <Text style={{color: 'white'}}>
+            <ButtonText white={Colors.white}>
               {movieAlreadyAdded && movieAlreadyAdded.length > 0
                 ? 'Added to wishlist'
                 : 'Add to wishlist'}
-            </Text>
-          </TouchableOpacity>
+            </ButtonText>
+          </AddWishlistButton>
         )}
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: 'bold',
-            marginBottom: 10,
-            color: '#ecad00',
-          }}>
-          {title}
-        </Text>
+        <Title>{title}</Title>
         <Text>{description}</Text>
-      </View>
+      </DetailContainer>
     </>
   );
 };

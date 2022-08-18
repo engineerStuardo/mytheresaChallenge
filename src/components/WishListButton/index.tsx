@@ -1,23 +1,19 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+
+import {Text, TouchableOpacity} from './styled';
 
 import {IWishListButton} from '../../types/interfaces';
+
+import {Colors} from '../../theme/colors';
 
 export const WishListButton = ({setIsWishList, setIsHome}: IWishListButton) => {
   return (
     <TouchableOpacity
-      style={{padding: 10, alignItems: 'center'}}
       onPress={() => {
         setIsWishList(true);
         setIsHome(false);
       }}>
-      <Text
-        style={{
-          fontSize: 15,
-          color: 'white',
-          backgroundColor: '#ecad00',
-          padding: 10,
-        }}>
+      <Text colorText={Colors.white} backgroundColor={Colors.yellow}>
         Wish List
       </Text>
     </TouchableOpacity>

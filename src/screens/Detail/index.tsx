@@ -1,5 +1,6 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+
+import {ScrollView} from './styled';
 
 import {AdditionalInfo} from '../../components/AdditionalInfo';
 import {MovieDescription} from '../../components/MovieDescription';
@@ -12,13 +13,7 @@ export const Detail = ({movieSelected, setWishList, wishList}: IDetailPops) => {
   );
 
   return (
-    <ScrollView
-      style={{
-        height: '100%',
-      }}
-      contentContainerStyle={{
-        paddingBottom: 150,
-      }}>
+    <ScrollView>
       <MovieDescription
         posterPath={movieSelected.poster_path}
         setWishList={setWishList}

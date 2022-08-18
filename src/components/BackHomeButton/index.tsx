@@ -1,5 +1,7 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+
+import {Text, TouchableOpacity} from './styled';
+import {Colors} from '../../theme/colors';
 
 import {IBackHomeButtonProps} from '../../types/interfaces';
 
@@ -10,16 +12,13 @@ export const BackHomeButton = ({
 }: IBackHomeButtonProps) => {
   return (
     <TouchableOpacity
-      style={{padding: 10, marginBottom: 20}}
       onPress={() => {
         if (isWishList) {
           setIsWishList(false);
         }
         setIsHome(true);
       }}>
-      <Text style={{fontSize: 15, color: '#343e80'}}>
-        {'< '} Back to Home Screen
-      </Text>
+      <Text colorText={Colors.primary}>{'< '} Back to Home Screen</Text>
     </TouchableOpacity>
   );
 };

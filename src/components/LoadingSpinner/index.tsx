@@ -1,14 +1,13 @@
 import React from 'react';
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator} from 'react-native';
+
+import {Colors} from '../../theme/colors';
+import {View} from './styled';
 
 export const LoadingSpinner = () => {
   return (
-    <View
-      style={{
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <ActivityIndicator size="large" color={'#343e80'} />
+    <View>
+      <ActivityIndicator size="large" color={Colors.primary} />
     </View>
   );
 };

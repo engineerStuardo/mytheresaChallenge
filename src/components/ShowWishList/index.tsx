@@ -1,25 +1,27 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList} from 'react-native';
 
 import {MovieDescription} from '../MovieDescription';
+
+import {Container, ItemContainer} from './styled';
 
 import {IMovieProps} from '../../types/interfaces';
 
 export const ShowWishList = ({wishList}: IMovieProps) => {
   return (
-    <View style={{flexGrow: 1, marginBottom: 240}}>
+    <Container>
       <FlatList
         data={wishList}
         renderItem={({item}) => (
-          <View style={{marginBottom: 50}}>
+          <ItemContainer>
             <MovieDescription
               posterPath={item.poster_path}
               title={item.title}
               description={item.overview}
             />
-          </View>
+          </ItemContainer>
         )}
       />
-    </View>
+    </Container>
   );
 };
