@@ -125,3 +125,15 @@ export interface ITextProps {
   colorText: string;
   backgroundColor: string;
 }
+
+export interface INavigationProps {
+  isWishList: boolean;
+  wishList: Movie[];
+  isHome: boolean;
+  setMovieSelected: React.Dispatch<React.SetStateAction<any>>;
+  setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
+  movieSelected?: Movie;
+  setWishList: React.Dispatch<React.SetStateAction<Movie[]>>;
+  category: string;
+}
