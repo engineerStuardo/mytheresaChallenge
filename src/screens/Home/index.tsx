@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 
 import {MovieCarousel} from '../../components/MovieCarousel';
 import {LoadingSpinner} from '../../components/LoadingSpinner';
+import {Error} from '../../components/Error';
 import {ScrollView} from './styled';
 
 import {IHomeProps} from '../../types/interfaces';
@@ -20,12 +20,8 @@ export const Home = ({
     return <LoadingSpinner />;
   }
 
-  if (isError) {
-    return (
-      <View>
-        <Text>Error with the api...</Text>
-      </View>
-    );
+  if (isError || !popularMovies || !upcomingMovies || !familyMovies) {
+    return <Error />;
   }
 
   return (

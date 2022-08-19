@@ -31,7 +31,10 @@ export const useHome = () => {
         setFamilyMovies(familyMoviesData.results);
         setIsLoading(false);
       })
-      .catch(() => setIsError(true));
+      .catch(() => {
+        setIsLoading(false);
+        setIsError(true);
+      });
   }, []);
 
   return {popularMovies, upcomingMovies, familyMovies, isError, isLoading};
