@@ -2,9 +2,9 @@ import styled from 'styled-components/native';
 
 export const Title = styled.Text`
   font-size: 18px;
-  font-weight: bold;
   margin-top: 20px;
   margin-bottom: 10px;
+  font-family: 'Silkscreen-Regular';
 `;
 
 export const Image = styled.Image`

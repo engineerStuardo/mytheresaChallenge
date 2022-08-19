@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Platform} from 'react-native';
 
 import {
   Container,
@@ -8,6 +8,7 @@ import {
   AddWishlistButton,
   Title,
   ButtonText,
+  Description,
 } from './styled';
 
 import {IMovieDescriptionProps} from '../../types/interfaces';
@@ -23,7 +24,35 @@ export const MovieDescription = ({
   title,
   description,
   detail,
+  category,
 }: IMovieDescriptionProps) => {
+  const font =
+    category === 'Popular Movies'
+      ? Platform.OS === 'ios'
+        ? 'IndieFlower'
+        : 'IndieFlower-Regular'
+      : category === 'Upcoming Movies'
+      ? Platform.OS === 'ios'
+        ? 'ShadowsIntoLight'
+        : 'ShadowsIntoLight-Regular'
+      : category === 'Family Movies'
+      ? 'Lobster-Regular'
+      : 'Silkscreen-Regular';
+
+  const colorButton =
+    category === 'Popular Movies'
+      ? Colors.yellow
+      : category === 'Upcoming Movies'
+      ? Colors.primary
+      : Colors.green;
+
+  const buttonStyle =
+    category === 'Popular Movies'
+      ? '100px'
+      : category === 'Upcoming Movies'
+      ? '10px'
+      : '0px';
+
   return (
     <>
       <Container>
@@ -40,6 +69,8 @@ export const MovieDescription = ({
             movieAlreadyAdded={movieAlreadyAdded}
             disabledColor={Colors.disabled}
             enabledColor={Colors.enabled}
+            colorButton={colorButton}
+            buttonStyle={buttonStyle}
             disabled={movieAlreadyAdded && movieAlreadyAdded.length > 0}
             onPress={() => {
               setWishList &&
@@ -47,15 +78,17 @@ export const MovieDescription = ({
                 movieSelected &&
                 setWishList([...wishList, movieSelected]);
             }}>
-            <ButtonText white={Colors.white}>
+            <ButtonText white={Colors.white} font={font}>
               {movieAlreadyAdded && movieAlreadyAdded.length > 0
                 ? 'Added to wishlist'
                 : 'Add to wishlist'}
             </ButtonText>
           </AddWishlistButton>
         )}
-        <Title color={Colors.yellow}>{title}</Title>
-        <Text>{description}</Text>
+        <Title color={Colors.yellow} font={font}>
+          {title}
+        </Title>
+        <Description font={font}>{description}</Description>
       </DetailContainer>
     </>
   );

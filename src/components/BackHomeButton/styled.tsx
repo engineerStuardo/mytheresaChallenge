@@ -7,5 +7,6 @@ export const TouchableOpacity = styled.TouchableOpacity`
 
 export const Text = styled.Text`
   font-size: 15px;
-  color: ${(props: {colorText: string}) => props.colorText};
+  color: ${({colorText}: {colorText: string}) => colorText};
+  font-family: 'Silkscreen-Regular';
 `;

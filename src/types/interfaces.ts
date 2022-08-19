@@ -3,6 +3,7 @@ export interface IHeaderProps {
   setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
   setIsWishList: React.Dispatch<React.SetStateAction<boolean>>;
   isWishList: boolean;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IHeaderTitleProps {
@@ -19,6 +20,7 @@ export interface IBackHomeButtonProps {
 export interface IWishListButton {
   setIsWishList: React.Dispatch<React.SetStateAction<boolean>>;
   setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export enum OriginalLanguage {
@@ -63,11 +65,13 @@ export interface IMovieDescriptionProps {
   title: string;
   description: string;
   detail?: boolean;
+  category?: string;
 }
 
 export interface IHomeProps {
   setMovieSelected: React.Dispatch<React.SetStateAction<Movie | undefined>>;
   setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IMovieCarouselProps {
@@ -75,15 +79,49 @@ export interface IMovieCarouselProps {
   data: Movie[];
   setMovieSelected: React.Dispatch<React.SetStateAction<any>>;
   setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IDetailPops {
   movieSelected: Movie | any;
   setWishList: React.Dispatch<React.SetStateAction<Movie[]>>;
   wishList: Movie[];
+  category: string;
 }
 
 export interface IAdditionalInfoProps {
   language: string;
   date: Date;
+  category: string;
+}
+
+export interface IAddWishlistButtonProps {
+  buttonStyle: string;
+  movieAlreadyAdded: [];
+  disabledColor: string;
+  enabledColor: string;
+  colorButton: string;
+}
+
+export interface IButtonTextProps {
+  font: string;
+  white: string;
+}
+
+export interface ITitleProps {
+  color: string;
+  font: string;
+}
+
+export interface IDescriptionProps {
+  font: string;
+}
+
+export interface IAddionalInfoProps {
+  font: string;
+}
+
+export interface ITextProps {
+  colorText: string;
+  backgroundColor: string;
 }

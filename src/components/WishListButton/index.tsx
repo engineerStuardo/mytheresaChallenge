@@ -6,10 +6,15 @@ import {IWishListButton} from '../../types/interfaces';
 
 import {Colors} from '../../theme/colors';
 
-export const WishListButton = ({setIsWishList, setIsHome}: IWishListButton) => {
+export const WishListButton = ({
+  setIsWishList,
+  setIsHome,
+  setCategory,
+}: IWishListButton) => {
   return (
     <TouchableOpacity
       onPress={() => {
+        setCategory('');
         setIsWishList(true);
         setIsHome(false);
       }}>

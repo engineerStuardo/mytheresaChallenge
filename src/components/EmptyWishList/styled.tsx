@@ -8,4 +8,5 @@ export const View = styled.View`
 
 export const Text = styled.Text`
   font-size: 30px;
+  font-family: 'Silkscreen-Regular';
 `;

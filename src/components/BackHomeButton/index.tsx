@@ -18,7 +18,7 @@ export const BackHomeButton = ({
         }
         setIsHome(true);
       }}>
-      <Text colorText={Colors.primary}>{'< '} Back to Home Screen</Text>
+      <Text colorText={Colors.primary}>{'< '} Home Screen</Text>
     </TouchableOpacity>
   );
 };

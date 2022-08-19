@@ -1,5 +1,12 @@
 import styled from 'styled-components/native';
 
+import {
+  IAddWishlistButtonProps,
+  IButtonTextProps,
+  ITitleProps,
+  IDescriptionProps,
+} from '../../types/interfaces';
+
 export const Container = styled.View`
   justify-content: center;
   align-items: center;
@@ -18,27 +25,27 @@ export const DetailContainer = styled.View`
   padding: 10px;
 `;
 
-export const AddWishlistButton = styled.TouchableOpacity`
+export const AddWishlistButton = styled.TouchableOpacity<IAddWishlistButtonProps>`
   margin-bottom: 10px;
   padding: 10px;
-  border-radius: 8px;
-  background-color: ${(props: {
-    movieAlreadyAdded: [];
-    disabledColor: string;
-    enabledColor: string;
-  }) =>
-    props.movieAlreadyAdded.length > 0
-      ? props.disabledColor
-      : props.enabledColor};
+  border-radius: ${({buttonStyle}) => buttonStyle};
+  background-color: ${({movieAlreadyAdded, disabledColor, colorButton}) =>
+    movieAlreadyAdded.length > 0 ? disabledColor : colorButton};
 `;
 
-export const ButtonText = styled.Text`
-  color: ${({white}: {white: string}) => white};
-`;
-
-export const Title = styled.Text`
+export const ButtonText = styled.Text<IButtonTextProps>`
   font-size: 20px;
-  font-weight: bold;
+  color: ${({white}) => white};
+  font-family: ${({font}) => font};
+`;
+
+export const Title = styled.Text<ITitleProps>`
+  font-size: 25px;
   margin-bottom: 10px;
   color: ${({color}: {color: string}) => color};
+  font-family: ${({font}) => font};
+`;
+
+export const Description = styled.Text<IDescriptionProps>`
+  font-family: ${({font}) => font};
 `;

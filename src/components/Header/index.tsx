@@ -11,6 +11,7 @@ export const Header = ({
   setIsHome,
   setIsWishList,
   isWishList,
+  setCategory,
 }: IHeaderProps) => {
   return (
     <>
@@ -23,7 +24,11 @@ export const Header = ({
         />
       )}
       {isHome && !isWishList && (
-        <WishListButton setIsWishList={setIsWishList} setIsHome={setIsHome} />
+        <WishListButton
+          setIsWishList={setIsWishList}
+          setIsHome={setIsHome}
+          setCategory={setCategory}
+        />
       )}
     </>
   );

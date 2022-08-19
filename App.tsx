@@ -13,6 +13,7 @@ const App = () => {
   const [movieSelected, setMovieSelected] = useState<Movie>();
   const [isWishList, setIsWishList] = useState<boolean>(false);
   const [wishList, setWishList] = useState<Movie[]>([]);
+  const [category, setCategory] = useState<string>('');
 
   return (
     <SafeAreaView>
@@ -21,16 +22,22 @@ const App = () => {
         setIsHome={setIsHome}
         setIsWishList={setIsWishList}
         isWishList={isWishList}
+        setCategory={setCategory}
       />
       {isWishList ? (
         <WishList wishList={wishList} />
       ) : isHome ? (
-        <Home setMovieSelected={setMovieSelected} setIsHome={setIsHome} />
+        <Home
+          setMovieSelected={setMovieSelected}
+          setIsHome={setIsHome}
+          setCategory={setCategory}
+        />
       ) : (
         <Detail
           movieSelected={movieSelected}
           setWishList={setWishList}
           wishList={wishList}
+          category={category}
         />
       )}
     </SafeAreaView>

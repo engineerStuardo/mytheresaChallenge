@@ -7,7 +7,12 @@ import {MovieDescription} from '../../components/MovieDescription';
 
 import {IDetailPops} from '../../types/interfaces';
 
-export const Detail = ({movieSelected, setWishList, wishList}: IDetailPops) => {
+export const Detail = ({
+  movieSelected,
+  setWishList,
+  wishList,
+  category,
+}: IDetailPops) => {
   const movieAlreadyAdded = wishList.filter(
     movie => movie.id === movieSelected.id,
   );
@@ -15,6 +20,7 @@ export const Detail = ({movieSelected, setWishList, wishList}: IDetailPops) => {
   return (
     <ScrollView>
       <MovieDescription
+        category={category}
         posterPath={movieSelected.poster_path}
         setWishList={setWishList}
         wishList={wishList}
@@ -25,6 +31,7 @@ export const Detail = ({movieSelected, setWishList, wishList}: IDetailPops) => {
         detail
       />
       <AdditionalInfo
+        category={category}
         language={movieSelected.original_language}
         date={movieSelected.release_date}
       />

@@ -10,6 +10,7 @@ export const MovieCarousel = ({
   data,
   setMovieSelected,
   setIsHome,
+  setCategory,
 }: IMovieCarouselProps) => {
   return (
     <>
@@ -19,6 +20,7 @@ export const MovieCarousel = ({
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => {
+              setCategory(title);
               setMovieSelected(item);
               setIsHome(false);
             }}

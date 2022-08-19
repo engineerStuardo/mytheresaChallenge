@@ -6,5 +6,6 @@ export const View = styled.View`
 `;
 
 export const Text = styled.Text`
-  font-size: 25px;
+  font-size: 35px;
+  font-family: 'Silkscreen-Regular';
 `;
