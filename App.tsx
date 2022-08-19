@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, StatusBar, Platform} from 'react-native';
 
 import {Header} from './src/components/Header';
 import {Home} from './src/screens/Home';
@@ -16,31 +16,36 @@ const App = () => {
   const [category, setCategory] = useState<string>('');
 
   return (
-    <SafeAreaView>
-      <Header
-        isHome={isHome}
-        setIsHome={setIsHome}
-        setIsWishList={setIsWishList}
-        isWishList={isWishList}
-        setCategory={setCategory}
+    <>
+      <StatusBar
+        barStyle={Platform.OS === 'android' ? 'light-content' : 'dark-content'}
       />
-      {isWishList ? (
-        <WishList wishList={wishList} />
-      ) : isHome ? (
-        <Home
-          setMovieSelected={setMovieSelected}
+      <SafeAreaView>
+        <Header
+          isHome={isHome}
           setIsHome={setIsHome}
+          setIsWishList={setIsWishList}
+          isWishList={isWishList}
           setCategory={setCategory}
         />
-      ) : (
-        <Detail
-          movieSelected={movieSelected}
-          setWishList={setWishList}
-          wishList={wishList}
-          category={category}
-        />
-      )}
-    </SafeAreaView>
+        {isWishList ? (
+          <WishList wishList={wishList} />
+        ) : isHome ? (
+          <Home
+            setMovieSelected={setMovieSelected}
+            setIsHome={setIsHome}
+            setCategory={setCategory}
+          />
+        ) : (
+          <Detail
+            movieSelected={movieSelected}
+            setWishList={setWishList}
+            wishList={wishList}
+            category={category}
+          />
+        )}
+      </SafeAreaView>
+    </>
   );
 };
 
