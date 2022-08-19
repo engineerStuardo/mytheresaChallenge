@@ -17,24 +17,25 @@ export const Navigation = ({
   setWishList,
   category,
 }: INavigationProps) => {
+  if (isWishList) {
+    return <WishList wishList={wishList} />;
+  }
+
+  if (isHome) {
+    return (
+      <Home
+        setMovieSelected={setMovieSelected}
+        setIsHome={setIsHome}
+        setCategory={setCategory}
+      />
+    );
+  }
   return (
-    <>
-      {isWishList ? (
-        <WishList wishList={wishList} />
-      ) : isHome ? (
-        <Home
-          setMovieSelected={setMovieSelected}
-          setIsHome={setIsHome}
-          setCategory={setCategory}
-        />
-      ) : (
-        <Detail
-          movieSelected={movieSelected}
-          setWishList={setWishList}
-          wishList={wishList}
-          category={category}
-        />
-      )}
-    </>
+    <Detail
+      movieSelected={movieSelected}
+      setWishList={setWishList}
+      wishList={wishList}
+      category={category}
+    />
   );
 };

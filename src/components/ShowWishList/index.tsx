@@ -12,6 +12,7 @@ export const ShowWishList = ({wishList}: IMovieProps) => {
     <Container>
       <FlatList
         data={wishList}
+        keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
           <ItemContainer>
             <MovieDescription

@@ -137,3 +137,5 @@ export interface INavigationProps {
   setWishList: React.Dispatch<React.SetStateAction<Movie[]>>;
   category: string;
 }
+
+export type StatusBarStyle = 'light-content' | 'dark-content';

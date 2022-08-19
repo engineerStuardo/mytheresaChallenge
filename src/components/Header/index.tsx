@@ -16,18 +16,17 @@ export const Header = ({
   return (
     <>
       <HeaderTitle isWishList={isWishList} isHome={isHome} />
-      {!isHome && (
-        <BackHomeButton
-          isWishList={isWishList}
-          setIsWishList={setIsWishList}
-          setIsHome={setIsHome}
-        />
-      )}
-      {isHome && !isWishList && (
+      {isHome ? (
         <WishListButton
           setIsWishList={setIsWishList}
           setIsHome={setIsHome}
           setCategory={setCategory}
+        />
+      ) : (
+        <BackHomeButton
+          isWishList={isWishList}
+          setIsWishList={setIsWishList}
+          setIsHome={setIsHome}
         />
       )}
     </>

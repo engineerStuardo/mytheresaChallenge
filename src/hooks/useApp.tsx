@@ -1,6 +1,12 @@
 import {useState} from 'react';
+import {Platform} from 'react-native';
 
-import {IHeaderProps, INavigationProps, Movie} from '../types/interfaces';
+import {
+  IHeaderProps,
+  INavigationProps,
+  Movie,
+  StatusBarStyle,
+} from '../types/interfaces';
 
 export const useApp = () => {
   const [isHome, setIsHome] = useState<boolean>(true);
@@ -8,6 +14,9 @@ export const useApp = () => {
   const [isWishList, setIsWishList] = useState<boolean>(false);
   const [wishList, setWishList] = useState<Movie[]>([]);
   const [category, setCategory] = useState<string>('');
+
+  const statusBarStyle: StatusBarStyle =
+    Platform.OS === 'android' ? 'light-content' : 'dark-content';
 
   const navigationProps: INavigationProps = {
     isWishList,
@@ -29,5 +38,5 @@ export const useApp = () => {
     setCategory,
   };
 
-  return {navigationProps, headerProps};
+  return {navigationProps, headerProps, statusBarStyle};
 };

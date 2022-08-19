@@ -17,6 +17,8 @@ export const MovieCarousel = ({
       <Title>{title}</Title>
       <FlatList
         data={data}
+        horizontal={true}
+        keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => {
@@ -32,7 +34,6 @@ export const MovieCarousel = ({
             />
           </TouchableOpacity>
         )}
-        horizontal={true}
       />
     </>
   );
