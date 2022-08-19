@@ -1,5 +1,4 @@
 import React from 'react';
-import {Platform} from 'react-native';
 
 import {
   Container,
@@ -14,6 +13,7 @@ import {
 import {IMovieDescriptionProps} from '../../types/interfaces';
 
 import {Colors} from '../../theme/colors';
+import {useMovieDescription} from '../../hooks/useMovieDescription';
 
 export const MovieDescription = ({
   posterPath,
@@ -26,32 +26,7 @@ export const MovieDescription = ({
   detail,
   category,
 }: IMovieDescriptionProps) => {
-  const font =
-    category === 'Popular Movies'
-      ? Platform.OS === 'ios'
-        ? 'IndieFlower'
-        : 'IndieFlower-Regular'
-      : category === 'Upcoming Movies'
-      ? Platform.OS === 'ios'
-        ? 'ShadowsIntoLight'
-        : 'ShadowsIntoLight-Regular'
-      : category === 'Family Movies'
-      ? 'Lobster-Regular'
-      : 'Silkscreen-Regular';
-
-  const colorButton =
-    category === 'Popular Movies'
-      ? Colors.yellow
-      : category === 'Upcoming Movies'
-      ? Colors.primary
-      : Colors.green;
-
-  const buttonStyle =
-    category === 'Popular Movies'
-      ? '100px'
-      : category === 'Upcoming Movies'
-      ? '10px'
-      : '0px';
+  const {font, colorButton, buttonStyle} = useMovieDescription(category || '');
 
   return (
     <>

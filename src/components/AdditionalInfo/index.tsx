@@ -1,27 +1,16 @@
 import React from 'react';
-import {Platform} from 'react-native';
 
 import {Container, Title, Text} from './styled';
 
 import {IAdditionalInfoProps} from '../../types/interfaces';
+import {useMovieDescription} from '../../hooks/useMovieDescription';
 
 export const AdditionalInfo = ({
   language,
   date,
   category,
 }: IAdditionalInfoProps) => {
-  const font =
-    category === 'Popular Movies'
-      ? Platform.OS === 'ios'
-        ? 'IndieFlower'
-        : 'IndieFlower-Regular'
-      : category === 'Upcoming Movies'
-      ? Platform.OS === 'ios'
-        ? 'ShadowsIntoLight'
-        : 'ShadowsIntoLight-Regular'
-      : category === 'Family Movies'
-      ? 'Lobster-Regular'
-      : 'Silkscreen-Regular';
+  const {font} = useMovieDescription(category);
 
   return (
     <Container>
