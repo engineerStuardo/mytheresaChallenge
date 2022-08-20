@@ -1,10 +1,10 @@
 import React from 'react';
 import {Text, View} from './styled';
 
-export const EmptyWishList = () => {
+export const TextMessage = ({text}: {text: string}) => {
   return (
     <View>
-      <Text>Empty...</Text>
+      <Text>{text}</Text>
     </View>
   );
 };

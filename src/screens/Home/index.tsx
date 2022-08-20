@@ -2,7 +2,7 @@ import React from 'react';
 
 import {MovieCarousel} from '../../components/MovieCarousel';
 import {LoadingSpinner} from '../../components/LoadingSpinner';
-import {Error} from '../../components/Error';
+import {TextMessage} from '../../components/TextMessage';
 import {ScrollView} from './styled';
 
 import {IHomeProps} from '../../types/interfaces';
@@ -21,7 +21,7 @@ export const Home = ({
   }
 
   if (isError || !popularMovies || !upcomingMovies || !familyMovies) {
-    return <Error />;
+    return <TextMessage text="Error with server api call..." />;
   }
 
   return (
