@@ -22,19 +22,24 @@ export const useHome = () => {
     ]);
   };
 
-  useEffect(() => {
+  const fetchMovies = async () => {
     setIsLoading(true);
-    getMovies()
-      .then(([upcomingMoviesData, popularMoviesData, familyMoviesData]) => {
-        setUpcomingMovies(upcomingMoviesData.results);
-        setPopularMovies(popularMoviesData.results);
-        setFamilyMovies(familyMoviesData.results);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setIsError(true);
-      });
+    try {
+      const [upcomingMoviesData, popularMoviesData, familyMoviesData] =
+        await getMovies();
+      setUpcomingMovies(upcomingMoviesData.results);
+      setPopularMovies(popularMoviesData.results);
+      setFamilyMovies(familyMoviesData.results);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+    }
+  };
+
+  useEffect(() => {
+    fetchMovies();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {popularMovies, upcomingMovies, familyMovies, isError, isLoading};
