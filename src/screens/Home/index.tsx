@@ -6,16 +6,17 @@ import {TextMessage} from '../../components/TextMessage';
 import {ScrollView} from './styled';
 
 import {IHomeProps} from '../../types/interfaces';
-import {useHome} from '../../hooks/useHome';
 
 export const Home = ({
   setMovieSelected,
   setIsHome,
   setCategory,
+  popularMovies,
+  upcomingMovies,
+  familyMovies,
+  isError,
+  isLoading,
 }: IHomeProps) => {
-  const {popularMovies, upcomingMovies, familyMovies, isError, isLoading} =
-    useHome();
-
   if (isLoading) {
     return <LoadingSpinner />;
   }

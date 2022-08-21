@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHome} from '../hooks/useHome';
 
 import {Detail} from '../screens/Detail';
 import {Home} from '../screens/Home';
@@ -17,6 +18,9 @@ export const Navigation = ({
   setWishList,
   category,
 }: INavigationProps) => {
+  const {popularMovies, upcomingMovies, familyMovies, isError, isLoading} =
+    useHome();
+
   if (isWishList) {
     return <WishList wishList={wishList} />;
   }
@@ -27,6 +31,11 @@ export const Navigation = ({
         setMovieSelected={setMovieSelected}
         setIsHome={setIsHome}
         setCategory={setCategory}
+        popularMovies={popularMovies}
+        upcomingMovies={upcomingMovies}
+        familyMovies={familyMovies}
+        isError={isError}
+        isLoading={isLoading}
       />
     );
   }

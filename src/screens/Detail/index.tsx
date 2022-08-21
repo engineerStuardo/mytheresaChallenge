@@ -13,10 +13,6 @@ export const Detail = ({
   wishList,
   category,
 }: IDetailPops) => {
-  const movieAlreadyAdded = wishList.filter(
-    movie => movie.id === movieSelected.id,
-  );
-
   return (
     <ScrollView>
       <MovieDescription
@@ -25,7 +21,6 @@ export const Detail = ({
         setWishList={setWishList}
         wishList={wishList}
         movieSelected={movieSelected}
-        movieAlreadyAdded={movieAlreadyAdded}
         title={movieSelected.title}
         description={movieSelected.overview}
         detail

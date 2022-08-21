@@ -61,7 +61,6 @@ export interface IMovieDescriptionProps {
   setWishList?: React.Dispatch<React.SetStateAction<Movie[]>>;
   wishList?: Movie[];
   movieSelected?: Movie;
-  movieAlreadyAdded?: Movie[];
   title: string;
   description: string;
   detail?: boolean;
@@ -72,6 +71,11 @@ export interface IHomeProps {
   setMovieSelected: React.Dispatch<React.SetStateAction<Movie | undefined>>;
   setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
   setCategory: React.Dispatch<React.SetStateAction<string>>;
+  popularMovies: Movie[] | undefined;
+  upcomingMovies: Movie[] | undefined;
+  familyMovies: Movie[] | undefined;
+  isError: boolean;
+  isLoading: boolean;
 }
 
 export interface IMovieCarouselProps {

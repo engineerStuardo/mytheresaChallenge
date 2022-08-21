@@ -20,13 +20,17 @@ export const MovieDescription = ({
   setWishList,
   wishList,
   movieSelected,
-  movieAlreadyAdded,
   title,
   description,
   detail,
   category,
 }: IMovieDescriptionProps) => {
   const {font, colorButton, buttonStyle} = useMovieDescription(category || '');
+
+  const movieAlreadyAdded =
+    wishList &&
+    movieSelected &&
+    wishList.filter(movie => movie.id === movieSelected.id);
 
   return (
     <>
