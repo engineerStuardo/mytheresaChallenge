@@ -44,3 +44,8 @@ Run tests:
 <p align="center">
   <img src = "https://i.imgur.com/BrxNgsJ.png" width=450>
 </p>
+
+How to run the app:
+
+https://user-images.githubusercontent.com/72483443/185813741-a47b4df6-2310-4f74-8bec-75d866c34ce6.mp4
+
