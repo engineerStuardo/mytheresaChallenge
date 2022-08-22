@@ -14,7 +14,6 @@
 - [Table of Contents](#table-of-contents)
 - [Description](#description)
 - [Steps to run the APP](#steps-to-run-the-app)
-- [Improvements](#improvements)
 
 ## Description
 
@@ -26,7 +25,7 @@ This is a React Native Challenge using: TypeScript, styled-components, Jest and 
 - ### You can find a release .app for ios in&nbsp;&nbsp;`ios app`&nbsp;&nbsp;folder.
 <br>
 <p align="center">
-  <img src = "https://i.imgur.com/RQfTYBZ.png" width=350>
+  <img src = "https://i.imgur.com/alPvEdG.png" width=350>
 </p>
 
 ## Steps to run the APP
@@ -52,14 +51,3 @@ Run tests:
 How to run the app:
 
 https://user-images.githubusercontent.com/72483443/185813741-a47b4df6-2310-4f74-8bec-75d866c34ce6.mp4
-
-## Improvements
-
-I know that in other for you to test my abilities in React Native you specifically ask not to use any boilerplate or libraries. And I did my best as always. But if you wouldn't ask me that, I would probably use this following libriries:
-
-1. Install and use the following libraries:
-
-   - React Navigation.
-   - Axios.
-   - Redux or Zustand.
-   - And some other library to make our lifes easier 😅.
