@@ -49,6 +49,10 @@ Run tests:
   <img src = "https://i.imgur.com/BrxNgsJ.png" width=450>
 </p>
 
+How to run the app:
+
+https://user-images.githubusercontent.com/72483443/185813741-a47b4df6-2310-4f74-8bec-75d866c34ce6.mp4
+
 ## Improvements
 
 I know that in other for you to test my abilities in React Native you specifically ask not to use any boilerplate or libraries. And I did my best as always. But if you wouldn't ask me that, I would probably use this following libriries:
@@ -59,7 +63,3 @@ I know that in other for you to test my abilities in React Native you specifical
    - Axios.
    - Redux or Zustand.
    - And some other library to make our lifes easier 😅.
-
-How to run the app:
-
-https://user-images.githubusercontent.com/72483443/185813741-a47b4df6-2310-4f74-8bec-75d866c34ce6.mp4
