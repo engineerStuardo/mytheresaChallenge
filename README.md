@@ -22,6 +22,7 @@ This is a React Native Challenge using: TypeScript, styled-components, Jest and 
 **The APP is functional for both iOS and Android.**
 
 - ### You can find a release apk for android in&nbsp;&nbsp;`android apk`&nbsp;&nbsp;folder.
+- ### You can find a release .app for ios in&nbsp;&nbsp;`ios app`&nbsp;&nbsp;folder.
 <br>
 <p align="center">
   <img src = "https://i.imgur.com/RQfTYBZ.png" width=350>
