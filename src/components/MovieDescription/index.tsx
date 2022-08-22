@@ -1,6 +1,8 @@
 import React from 'react';
+import env from 'react-native-config';
 
 import {
+  ItemContainer,
   Container,
   Image,
   DetailContainer,
@@ -10,36 +12,33 @@ import {
   Description,
 } from './styled';
 
-import {IMovieDescriptionProps} from '../../types/interfaces';
-
 import {Colors} from '../../theme/colors';
 import {useMovieDescription} from '../../hooks/useMovieDescription';
+import useMovieStore from '../../store/useMovieStore';
+import {Movie} from '../../types/interfaces';
 
-export const MovieDescription = ({
-  posterPath,
-  setWishList,
-  wishList,
-  movieSelected,
-  title,
-  description,
-  detail,
-  category,
-}: IMovieDescriptionProps) => {
-  const {font, colorButton, buttonStyle} = useMovieDescription(category || '');
+export const MovieDescription = ({movie}: {movie: Movie}) => {
+  const {category, wishList, movieSelected, setWishList, detail} =
+    useMovieStore();
 
-  const movieAlreadyAdded =
-    wishList &&
-    movieSelected &&
-    wishList.filter(movie => movie.id === movieSelected.id);
+  const {font, colorButton, buttonStyle} = useMovieDescription(category);
+
+  const movieAlreadyAdded = wishList.filter(
+    (movieItem: Movie) => movieItem.id === movieSelected.id,
+  );
 
   return (
-    <>
+    <ItemContainer>
       <Container>
         <Image
           resizeMode="cover"
-          source={{
-            uri: `https://image.tmdb.org/t/p/w500${posterPath}`,
-          }}
+          source={
+            movie.poster_path
+              ? {
+                  uri: `${env.IMAGE_URL}${movie.poster_path}`,
+                }
+              : require('../../assets/images/placeholder.png')
+          }
         />
       </Container>
       <DetailContainer>
@@ -50,25 +49,22 @@ export const MovieDescription = ({
             enabledColor={Colors.enabled}
             colorButton={colorButton}
             buttonStyle={buttonStyle}
-            disabled={movieAlreadyAdded && movieAlreadyAdded.length > 0}
+            disabled={movieAlreadyAdded.length > 0}
             onPress={() => {
-              setWishList &&
-                wishList &&
-                movieSelected &&
-                setWishList([...wishList, movieSelected]);
+              setWishList(movieSelected);
             }}>
             <ButtonText white={Colors.white} font={font}>
-              {movieAlreadyAdded && movieAlreadyAdded.length > 0
+              {movieAlreadyAdded.length > 0
                 ? 'Added to wishlist'
                 : 'Add to wishlist'}
             </ButtonText>
           </AddWishlistButton>
         )}
         <Title color={Colors.yellow} font={font}>
-          {title}
+          {movie.title}
         </Title>
-        <Description font={font}>{description}</Description>
+        <Description font={font}>{movie.overview}</Description>
       </DetailContainer>
-    </>
+    </ItemContainer>
   );
 };

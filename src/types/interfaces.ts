@@ -1,28 +1,3 @@
-export interface IHeaderProps {
-  isHome: boolean;
-  setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsWishList: React.Dispatch<React.SetStateAction<boolean>>;
-  isWishList: boolean;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export interface IHeaderTitleProps {
-  isWishList: boolean;
-  isHome: boolean;
-}
-
-export interface IBackHomeButtonProps {
-  isWishList: boolean;
-  setIsWishList: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface IWishListButton {
-  setIsWishList: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-}
-
 export enum OriginalLanguage {
   En = 'en',
   Ja = 'ja',
@@ -52,51 +27,9 @@ export interface APIResponse {
   total_results: number;
 }
 
-export interface IMovieProps {
-  wishList: Movie[];
-}
-
-export interface IMovieDescriptionProps {
-  posterPath: string;
-  setWishList?: React.Dispatch<React.SetStateAction<Movie[]>>;
-  wishList?: Movie[];
-  movieSelected?: Movie;
-  title: string;
-  description: string;
-  detail?: boolean;
-  category?: string;
-}
-
-export interface IHomeProps {
-  setMovieSelected: React.Dispatch<React.SetStateAction<Movie | undefined>>;
-  setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-  popularMovies: Movie[] | undefined;
-  upcomingMovies: Movie[] | undefined;
-  familyMovies: Movie[] | undefined;
-  isError: boolean;
-  isLoading: boolean;
-}
-
 export interface IMovieCarouselProps {
   title: string;
   data: Movie[];
-  setMovieSelected: React.Dispatch<React.SetStateAction<any>>;
-  setIsHome: React.Dispatch<React.SetStateAction<boolean>>;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export interface IDetailPops {
-  movieSelected: Movie | any;
-  setWishList: React.Dispatch<React.SetStateAction<Movie[]>>;
-  wishList: Movie[];
-  category: string;
-}
-
-export interface IAdditionalInfoProps {
-  language: string;
-  date: Date;
-  category: string;
 }
 
 export interface IAddWishlistButtonProps {
@@ -143,3 +76,8 @@ export interface INavigationProps {
 }
 
 export type StatusBarStyle = 'light-content' | 'dark-content';
+
+export type ParamList = {
+  WishList: undefined;
+  Detail: undefined;
+};

@@ -1,14 +1,14 @@
 import React from 'react';
-
-import {TextMessage} from '../../components/TextMessage';
 import {ShowWishList} from '../../components/ShowWishList';
+import {TextMessage} from '../../components/TextMessage';
+import useMovieStore from '../../store/useMovieStore';
 
-import {IMovieProps} from '../../types/interfaces';
+export const WishList = () => {
+  const {wishList} = useMovieStore();
 
-export const WishList = ({wishList}: IMovieProps) => {
   if (wishList.length === 0) {
     return <TextMessage text="Empty..." />;
   }
 
-  return <ShowWishList wishList={wishList} />;
+  return <ShowWishList />;
 };

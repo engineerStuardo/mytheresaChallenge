@@ -1,50 +1,21 @@
 import React from 'react';
-import {useHome} from '../hooks/useHome';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import {Detail} from '../screens/Detail';
 import {Home} from '../screens/Home';
+import {Detail} from '../screens/Detail';
 import {WishList} from '../screens/WishList';
+import {useNavigationStack} from '../hooks/useNavigationStack';
 
-import {INavigationProps} from '../types/interfaces';
+const Stack = createStackNavigator();
 
-export const Navigation = ({
-  isWishList,
-  wishList,
-  isHome,
-  setMovieSelected,
-  setIsHome,
-  setCategory,
-  movieSelected,
-  setWishList,
-  category,
-}: INavigationProps) => {
-  const {popularMovies, upcomingMovies, familyMovies, isError, isLoading} =
-    useHome();
+export const MainNavigator = () => {
+  const {options} = useNavigationStack();
 
-  if (isWishList) {
-    return <WishList wishList={wishList} />;
-  }
-
-  if (isHome) {
-    return (
-      <Home
-        setMovieSelected={setMovieSelected}
-        setIsHome={setIsHome}
-        setCategory={setCategory}
-        popularMovies={popularMovies}
-        upcomingMovies={upcomingMovies}
-        familyMovies={familyMovies}
-        isError={isError}
-        isLoading={isLoading}
-      />
-    );
-  }
   return (
-    <Detail
-      movieSelected={movieSelected}
-      setWishList={setWishList}
-      wishList={wishList}
-      category={category}
-    />
+    <Stack.Navigator initialRouteName="Home" screenOptions={options}>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="WishList" component={WishList} />
+      <Stack.Screen name="Detail" component={Detail} />
+    </Stack.Navigator>
   );
 };

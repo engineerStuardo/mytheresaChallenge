@@ -1,22 +1,16 @@
 import React from 'react';
-
-import {MovieCarousel} from '../../components/MovieCarousel';
 import {LoadingSpinner} from '../../components/LoadingSpinner';
+import {MovieCarousel} from '../../components/MovieCarousel';
 import {TextMessage} from '../../components/TextMessage';
+import {WishListButton} from '../../components/WishListButton';
+import {useHome} from '../../hooks/useHome';
+
 import {ScrollView} from './styled';
 
-import {IHomeProps} from '../../types/interfaces';
+export const Home = () => {
+  const {popularMovies, upcomingMovies, familyMovies, isError, isLoading} =
+    useHome();
 
-export const Home = ({
-  setMovieSelected,
-  setIsHome,
-  setCategory,
-  popularMovies,
-  upcomingMovies,
-  familyMovies,
-  isError,
-  isLoading,
-}: IHomeProps) => {
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -26,34 +20,19 @@ export const Home = ({
   }
 
   return (
-    <ScrollView>
-      {popularMovies && (
-        <MovieCarousel
-          title="Popular Movies"
-          data={popularMovies}
-          setMovieSelected={setMovieSelected}
-          setIsHome={setIsHome}
-          setCategory={setCategory}
-        />
-      )}
-      {upcomingMovies && (
-        <MovieCarousel
-          title="Upcoming Movies"
-          data={upcomingMovies}
-          setMovieSelected={setMovieSelected}
-          setIsHome={setIsHome}
-          setCategory={setCategory}
-        />
-      )}
-      {familyMovies && (
-        <MovieCarousel
-          title="Family Movies"
-          data={familyMovies}
-          setMovieSelected={setMovieSelected}
-          setIsHome={setIsHome}
-          setCategory={setCategory}
-        />
-      )}
-    </ScrollView>
+    <>
+      <ScrollView>
+        <WishListButton />
+        {popularMovies && (
+          <MovieCarousel title="Popular Movies" data={popularMovies} />
+        )}
+        {upcomingMovies && (
+          <MovieCarousel title="Upcoming Movies" data={upcomingMovies} />
+        )}
+        {familyMovies && (
+          <MovieCarousel title="Family Movies" data={familyMovies} />
+        )}
+      </ScrollView>
+    </>
   );
 };

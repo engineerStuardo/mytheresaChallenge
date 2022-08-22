@@ -1,22 +1,23 @@
 import React from 'react';
+import type {StackNavigationProp} from '@react-navigation/stack';
 
 import {Text, TouchableOpacity} from './styled';
 
-import {IWishListButton} from '../../types/interfaces';
-
 import {Colors} from '../../theme/colors';
+import {useNavigation} from '@react-navigation/native';
+import useMovieStore from '../../store/useMovieStore';
+import {ParamList} from '../../types/interfaces';
 
-export const WishListButton = ({
-  setIsWishList,
-  setIsHome,
-  setCategory,
-}: IWishListButton) => {
+export const WishListButton = () => {
+  const navigation = useNavigation<StackNavigationProp<ParamList>>();
+  const {setDetail, setCategory} = useMovieStore();
+
   return (
     <TouchableOpacity
       onPress={() => {
+        setDetail(false);
         setCategory('');
-        setIsWishList(true);
-        setIsHome(false);
+        navigation.navigate('WishList');
       }}>
       <Text colorText={Colors.white} backgroundColor={Colors.yellow}>
         Wish List

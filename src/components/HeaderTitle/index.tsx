@@ -1,14 +1,14 @@
 import React from 'react';
 import {Text, View} from './styled';
 
-import {IHeaderTitleProps} from '../../types/interfaces';
+import {useRoute} from '@react-navigation/native';
 
-export const HeaderTitle = ({isWishList, isHome}: IHeaderTitleProps) => {
+export const HeaderTitle = () => {
+  const route = useRoute();
+
   return (
     <View>
-      <Text>
-        {isWishList ? 'Wish List' : isHome ? 'Home Screen' : 'Detail Screen'}
-      </Text>
+      <Text>{`${route.name} Screen`}</Text>
     </View>
   );
 };

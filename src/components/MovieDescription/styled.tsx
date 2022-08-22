@@ -7,6 +7,11 @@ import {
   IDescriptionProps,
 } from '../../types/interfaces';
 
+export const ItemContainer = styled.View`
+  margin-bottom: 10px;
+  padding-top: 50px;
+`;
+
 export const Container = styled.View`
   justify-content: center;
   align-items: center;

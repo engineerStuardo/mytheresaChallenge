@@ -2,21 +2,20 @@ import React from 'react';
 
 import {Container, Title, Text} from './styled';
 
-import {IAdditionalInfoProps} from '../../types/interfaces';
 import {useMovieDescription} from '../../hooks/useMovieDescription';
+import useMovieStore from '../../store/useMovieStore';
 
-export const AdditionalInfo = ({
-  language,
-  date,
-  category,
-}: IAdditionalInfoProps) => {
+export const AdditionalInfo = () => {
+  const {category, movieSelected} = useMovieStore();
   const {font} = useMovieDescription(category);
 
   return (
     <Container>
       <Title font={font}>Additional Information</Title>
-      <Text font={font}>Language: {language}</Text>
-      <Text font={font}>Release date: {date.toString()}</Text>
+      <Text font={font}>Language: {movieSelected.original_language}</Text>
+      <Text font={font}>
+        Release date: {movieSelected.release_date.toString()}
+      </Text>
     </Container>
   );
 };

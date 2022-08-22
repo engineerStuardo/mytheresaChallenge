@@ -1,17 +1,12 @@
 import React from 'react';
-import {FlatList, TouchableOpacity} from 'react-native';
+import {FlatList} from 'react-native';
 
-import {Title, Image} from './styled';
+import {Title} from './styled';
 
 import {IMovieCarouselProps} from '../../types/interfaces';
+import {ImageItem} from '../ImageItem';
 
-export const MovieCarousel = ({
-  title,
-  data,
-  setMovieSelected,
-  setIsHome,
-  setCategory,
-}: IMovieCarouselProps) => {
+export const MovieCarousel = ({title, data}: IMovieCarouselProps) => {
   return (
     <>
       <Title>{title}</Title>
@@ -19,21 +14,7 @@ export const MovieCarousel = ({
         data={data}
         horizontal={true}
         keyExtractor={item => item.id.toString()}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => {
-              setCategory(title);
-              setMovieSelected(item);
-              setIsHome(false);
-            }}
-            style={{}}>
-            <Image
-              source={{
-                uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
-              }}
-            />
-          </TouchableOpacity>
-        )}
+        renderItem={({item}) => <ImageItem item={item} title={title} />}
       />
     </>
   );
