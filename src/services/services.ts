@@ -1,27 +1,24 @@
 import env from 'react-native-config';
 
+import axios from '../lib/axiosClient';
 import {APIResponse} from '../types/interfaces';
 
 export const getPopularMovies = async () => {
-  const resp = await fetch(
-    `${env.BASE_URL}/movie/popular?api_key=${env.API_KEY}`,
-  );
-  const data: APIResponse = await resp.json();
-  return data;
+  const {data} = await axios.get(`/movie/popular?api_key=${env.API_KEY}`);
+  const results: APIResponse = data;
+  return results;
 };
 
 export const getUpcomingMovies = async () => {
-  const resp = await fetch(
-    `${env.BASE_URL}/movie/upcoming?api_key=${env.API_KEY}`,
-  );
-  const data: APIResponse = await resp.json();
-  return data;
+  const {data} = await axios.get(`/movie/upcoming?api_key=${env.API_KEY}`);
+  const results: APIResponse = data;
+  return results;
 };
 
 export const getFamilyMovies = async () => {
-  const resp = await fetch(
-    `${env.BASE_URL}/discover/movie?api_key=${env.API_KEY}&with_genres=10751`,
+  const {data} = await axios.get(
+    `/discover/movie?api_key=${env.API_KEY}&with_genres=10751`,
   );
-  const data: APIResponse = await resp.json();
-  return data;
+  const results: APIResponse = data;
+  return results;
 };
