@@ -14,6 +14,7 @@
 - [Table of Contents](#table-of-contents)
 - [Description](#description)
 - [Steps to run the APP](#steps-to-run-the-app)
+- [Improvements](#improvements)
 
 ## Description
 
@@ -47,6 +48,17 @@ Run tests:
 <p align="center">
   <img src = "https://i.imgur.com/BrxNgsJ.png" width=450>
 </p>
+
+## Improvements
+
+I know that in other for you to test my abilities in React Native you specifically ask not to use any boilerplate or libraries. And I did my best as always. But if you wouldn't ask me that, I would probably use this following libriries:
+
+1. Install and use the following libraries:
+
+   - React Navigation.
+   - Axios.
+   - Redux or Zustand.
+   - And some other library to make our lifes easier 😅.
 
 How to run the app:
 
