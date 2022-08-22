@@ -224,6 +224,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('mytheresa.keystore')
+            //This not should be hardcoded but for this test it's enought got build the apk
+            storePassword '12345678'
+            keyAlias 'mytheresaChallenge'
+            //This not should be hardcoded but for this test it's enought got build the apk
+            keyPassword '12345678'
+        }
     }
     buildTypes {
         debug {
@@ -235,6 +243,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
 
