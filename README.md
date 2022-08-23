@@ -35,18 +35,10 @@ Please follow this steps in order to run the app:
 1. Clone repository with the following command:&nbsp;&nbsp;` git clone https://github.com/engineerStuardo/mytheresaChallenge.git`.
 2. Then cd to the&nbsp;&nbsp;`mytheresaChallenge`&nbsp;&nbsp;folder.
 
-- Then run&nbsp;&nbsp;`yarn or yarn install`.
+3. Then run&nbsp;&nbsp;`yarn or yarn install`.
 
-3. Then cd to &nbsp;&nbsp;`ios`&nbsp;&nbsp;folder and run &nbsp;&nbsp;`pod install`.
-4. Go back to&nbsp;&nbsp;`mytheresaChallenge`&nbsp;&nbsp;folder and you can run the app for ios&nbsp;&nbsp;`yarn ios`&nbsp;&nbsp;or Android&nbsp;&nbsp;`yarn android`.
-
-Run tests:
-
-1. Make sure you are currently in&nbsp;&nbsp;`mytheresaChallenge`&nbsp;&nbsp;folder and then run&nbsp;&nbsp;`yarn test`.&nbsp;&nbsp; An then you will see something like this:
-
-<p align="center">
-  <img src = "https://i.imgur.com/BrxNgsJ.png" width=450>
-</p>
+4. Then cd to &nbsp;&nbsp;`ios`&nbsp;&nbsp;folder and run &nbsp;&nbsp;`pod install`.
+5. Go back to&nbsp;&nbsp;`mytheresaChallenge`&nbsp;&nbsp;folder and you can run the app for ios&nbsp;&nbsp;`yarn ios`&nbsp;&nbsp;or Android&nbsp;&nbsp;`yarn android`.
 
 How to run the app:
 
